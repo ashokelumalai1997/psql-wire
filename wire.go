@@ -31,8 +31,11 @@ func ListenAndServe(address string, handler ParseFn) error {
 
 // NewServer constructs a new Postgres server using the given address and server options.
 func NewServer(parse ParseFn, options ...OptionFn) (*Server, error) {
+	parameter := make(Parameters)
+	parameter[ParamServerVersion] = "13.6"
 	srv := &Server{
 		parse:      parse,
+		Parameters: parameter,
 		logger:     slog.Default(),
 		closer:     make(chan struct{}),
 		types:      pgtype.NewConnInfo(),
