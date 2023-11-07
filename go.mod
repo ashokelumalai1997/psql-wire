@@ -1,4 +1,4 @@
-module github.com/jeroenrinzema/psql-wire
+module github.com/ashokelumalai1997/psql-wire
 
 go 1.21
 
